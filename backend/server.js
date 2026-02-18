@@ -8,6 +8,9 @@ app.get('/', (req, res) => {
   res.send('Ice Factory API Running');
 });
 
+const customerRoutes = require('./routes/customerRoutes');
+app.use('/customers', customerRoutes);
+
 app.listen(3000, () => {
   console.log('Server running on port 3000');
 });
