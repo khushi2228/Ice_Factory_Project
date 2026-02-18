@@ -19,8 +19,8 @@ const db = require('./config/db');
 
 app.get('/test-db', async (req, res) => {
   try {
-    const [rows] = await db.query('SELECT 1');
-    res.json({ message: 'DB Connected ', rows });
+    const [rows] = await db.query('SHOW TABLES');
+    res.json(rows);
   } catch (err) {
     console.error(err); 
     res.status(500).json({ error: 'DB connection failed' });
